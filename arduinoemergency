@@ -1,0 +1,34 @@
+bool f=false;
+bool touch=LOW;
+int t_now;
+int buzzer;
+
+void setup() {
+  Serial.begin(9600);
+}
+void loop() {
+  smoke();
+  /*-------------------------------------------------------Emergency--------------------------------------------------------------------*/                                          
+  if(touch)
+    { t_now=millis();f=false;Serial.println("OK");}
+    while(millis()-t_now<30000 && !touch )
+     { if(touch){f=false; break;}
+      f=true;}
+    if(f)
+      Emergency();
+}
+void Emergency()
+{
+  tone(buzzer,1000);
+  Serial.println("Emergency");
+}
+void smoke()
+{
+  int thresh;
+  int smoke_value=analogRead(A5);
+  Serial.println(smoke_value);
+  if(smoke_value>=thresh)
+    Emergency();
+  else
+   noTone(buzzer);
+}
