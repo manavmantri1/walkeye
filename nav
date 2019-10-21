@@ -88,8 +88,7 @@ def main():
             [0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0],
             [0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0],
             [0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0]]
-    #A=(0,0)
-    #B=(7,2)
+   
     print("Enter Start Location coordinates:")
     A=input()
     X=(int(A[0]),int(A[-1]))
